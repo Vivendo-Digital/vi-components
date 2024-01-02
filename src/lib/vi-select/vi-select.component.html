@@ -1,0 +1,26 @@
+<audio #audioPlayer></audio>
+<div class="select-container">
+    <div class="label">{{label}}</div>
+    <div (click)="toggle($event)" class="selection">
+        <div [style.opacity]="disabled ? 0.5 : 1">{{ selectedOption ? selectedOption.label : 'Please select an option' }}</div>
+        <div [style.opacity]="disabled ? 0.5 : 1" class="toggle">
+            <svg [class.rotate]="showOptions" class="toggle-icon" width="20" height="20" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 7.5 L10 12.5 L15 7.5" stroke="currentColor" stroke-width="2" fill="none" />
+            </svg>
+        </div>
+    </div>
+    <div [class.visible]="!showOptions" class="options">
+        <div *ngFor="let g of options">
+            <div class="group-header">{{g.name}}</div>
+            <div class="option" *ngFor="let o of g.options">
+                <div (click)="playPreview(o)" *ngIf="o.audioSource" class="audio-preview">
+                    <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 7.5L22.5 15L10 22.5V7.5Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div (click)="selectOption(o)" class="option-label">{{o.label}}</div>
+            </div>
+        </div>
+    </div>
+</div>

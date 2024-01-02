@@ -1,0 +1,81 @@
+.select-container {
+    position: relative;
+}
+
+.label {
+    font-size: small;
+    font-weight: 400;
+    //padding-left: 16px;
+    padding-bottom: 8px;
+}
+
+.selection {
+    border: 1px solid lightgray;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    cursor: pointer;
+    margin-bottom: 16px;
+}
+
+.options {
+    position: absolute;
+    z-index: 999;
+    background-color: white;
+    width: 100%;
+    max-height: 250px;
+    top: 70px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 8px;
+    border-radius: 12px;
+    overflow-y: scroll;
+    .option {
+        padding: 16px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+    .group-header {
+        display: flex;
+        align-items: center;
+        padding: 8px 16px;
+        background-color: #edf2f5;
+        color: #9598a6;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        height: 20px;
+    }
+    .audio-player {
+        display: none;
+    }
+    
+    .audio-preview {
+        margin-left: -8px;
+        margin-right: 8px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.toggle {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+svg.toggle-icon {
+    display: inline-block; // Ensures the image is treated as inline-block
+    transition: transform 0.2s ease; // Smooth transition for rotation
+    transform-origin: 50% 50%; // Explicitly set the origin of transformation to the center
+
+    &.rotate {
+        transform: rotate(180deg); // Rotates the image 180 degrees
+    }
+}
+
+.visible {
+    visibility: hidden;
+}
+
